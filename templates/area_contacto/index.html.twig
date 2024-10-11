@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear nueva Área de Contacto{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Crear nueva Área de Contacto</h2>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                            <div class="form-group">
+                                {{ form_label(form.nombre, 'Nombre del Área') }}
+                                {{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+                                <div class="invalid-feedback">
+                                    {{ form_errors(form.nombre) }}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mt-4">Guardar</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

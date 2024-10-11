@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Formulario de Contacto</h2>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                            <div class="mb-3">
+                                {{ form_row(form.nombre, {
+                                    'attr': {'class': 'form-control', 'placeholder': 'Nombre'}
+                                }) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.apellido, {
+                                    'attr': {'class': 'form-control', 'placeholder': 'Apellido'}
+                                }) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.correo, {
+                                    'attr': {'class': 'form-control', 'placeholder': 'Correo electrónico'}
+                                }) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.celular, {
+                                    'attr': {'class': 'form-control', 'placeholder': 'Número de celular'}
+                                }) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.areaContacto, {
+                                    'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.mensaje, {
+                                    'attr': {'class': 'form-control', 'placeholder': 'Mensaje', 'rows': '3'}
+                                }) }}
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                        {{ form_end(form) }}
+
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success mt-3">{{ message }}</div>
+                        {% endfor %}
+                        {% for message in app.flashes('error') %}
+                            <div class="alert alert-danger mt-3">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
